@@ -290,6 +290,11 @@ class AppNavDrawer extends Component {
                 ]}
               />,
               <ListItem
+                primaryText="MultiSelect"
+                value="/components/multiselect"
+                href="#/components/multiselect"
+              />,
+              <ListItem
                 primaryText="Paper"
                 value="/components/paper"
                 href="#/components/paper"

@@ -24,6 +24,7 @@ module.exports = {
   ],
   rules: {
     // Errors
+    'no-console': 0,
     'array-bracket-spacing': ['error', 'never'],
     'arrow-spacing': 'error',
     'arrow-parens': 'error',

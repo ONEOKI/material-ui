@@ -42,6 +42,7 @@ import ListPage from './components/pages/components/List/Page';
 import LinearProgressPage from './components/pages/components/LinearProgress/Page';
 import PaperPage from './components/pages/components/Paper/Page';
 import MenuPage from './components/pages/components/Menu/Page';
+import MultiSelect from './components/pages/components/MultiSelect/Page';
 import PopoverPage from './components/pages/components/Popover/Page';
 import RaisedButtonPage from './components/pages/components/RaisedButton/Page';
 import RefreshIndicatorPage from './components/pages/components/RefreshIndicator/Page';
@@ -117,6 +118,7 @@ const AppRoutes = (
       <Route path="linear-progress" component={LinearProgressPage} />
       <Route path="paper" component={PaperPage} />
       <Route path="menu" component={MenuPage} />
+      <Route path="multiselect" component={MultiSelect} />
       <Route path="popover" component={PopoverPage} />
       <Route path="refresh-indicator" component={RefreshIndicatorPage} />
       <Route path="radio-button" component={RadioButtonPage} />

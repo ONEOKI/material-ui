@@ -247,6 +247,8 @@ class TextField extends Component {
      * The value of the text field.
      */
     value: PropTypes.any,
+
+    valuePrefix: PropTypes.node,
   };
 
   static defaultProps = {
@@ -408,6 +410,7 @@ class TextField extends Component {
       underlineStyle,
       rows,
       rowsMax,
+      valuePrefix,
       textareaStyle,
       ...other,
     } = this.props;
@@ -480,24 +483,37 @@ class TextField extends Component {
       rootProps = other;
     }
 
+    let valuePrefixWrapper = null;
+
+    if (valuePrefix) {
+      valuePrefixWrapper = (
+        <div>
+          {valuePrefix}
+        </div>
+      );
+    }
+
     return (
       <div
         {...rootProps}
         className={className}
         style={prepareStyles(Object.assign(styles.root, style))}
       >
-        {floatingLabelTextElement}
-        {hintText ?
-          <TextFieldHint
-            muiTheme={this.context.muiTheme}
-            show={!(this.state.hasValue || (floatingLabelText && !this.state.isFocused)) ||
-                  (!this.state.hasValue && floatingLabelText && floatingLabelFixed && !this.state.isFocused)}
-            style={hintStyle}
-            text={hintText}
-          /> :
-          null
-        }
-        {inputElement}
+        <div style={{display: 'flex', height: '100%'}}>
+          {valuePrefixWrapper}
+          {floatingLabelTextElement}
+          {hintText ?
+            <TextFieldHint
+              muiTheme={this.context.muiTheme}
+              show={!(this.state.hasValue || (floatingLabelText && !this.state.isFocused)) ||
+                    (!this.state.hasValue && floatingLabelText && floatingLabelFixed && !this.state.isFocused)}
+              style={hintStyle}
+              text={hintText}
+            /> :
+            null
+          }
+          {inputElement}
+        </div>
         {underlineShow ?
           <TextFieldUnderline
             disabled={disabled}
